@@ -1,21 +1,18 @@
+from typing import List
+
+from saver.stocks.market import Market
+
+
 class Stock:
-    def __init__(self, name: str, currency: str) -> None:
+    def __init__(self, name: str, currency: str, market: Market) -> None:
         self.name = name
         self.currency = currency
+        self.market = market
+
+        self.operations: List['StockOperation'] = []
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.market}-(self.name)"
 
     def __repr__(self) -> str:
-        return self.name
-
-    def __hash__(self) -> str:
-        return self.name
-
-    def __eq__(self, other: 'Stock') -> bool:
-        if (self.name == other.name and
-            self.currency == other.currency):
-            return True
-        
-        return False
-
+        return f"{self.market}-(self.name)"
