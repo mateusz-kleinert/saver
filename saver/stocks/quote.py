@@ -1,14 +1,18 @@
 from datetime import date
 
-from .stock import Stock
+from saver.stocks.stock import Stock
+from saver.enums.enums import Currencies
 
 
 class QuotePrice:
-    def __init__(self, open: float, max: float, min: float, close: float) -> None:
+    def __init__(
+        self, open: float, max: float, min: float, close: float, currency: Currencies
+    ) -> None:
         self.open = open
         self.max = max
         self.min = min
         self.close = close
+        self.currency = currency
 
 
 class Quote:

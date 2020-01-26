@@ -3,6 +3,7 @@ from datetime import date
 
 from saver.stocks.stock import Stock
 from saver.stocks.market import Market
+from saver.enums.enums import Currencies
 
 
 class StockOperationType(Enum):
@@ -11,10 +12,6 @@ class StockOperationType(Enum):
 
 
 class StockOperation:
-    """
-    Event class represents a single Event of buying/selling Stocks.
-    """
-
     def __init__(
         self,
         operation_type: StockOperationType,
@@ -23,6 +20,7 @@ class StockOperation:
         stock: Stock,
         amount: int,
         price: float,
+        currency: Currencies,
         commission: float,
     ) -> None:
         self.operation_type = operation_type
@@ -31,6 +29,7 @@ class StockOperation:
         self.stock = stock
         self.amount = amount
         self.price = price
+        self.currency = currency
         self.commission = commission
 
     def __str__(self) -> str:

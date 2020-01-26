@@ -5,6 +5,7 @@ from enum import Enum
 class AccountOperationType(Enum):
     DEPOSIT = "DEPOSIT"
     WITHDRAWAL = "WITHDRAWAL"
+    INITALIZE = "INITIALIZE"
 
 
 class AccountOperation:

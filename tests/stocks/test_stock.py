@@ -5,12 +5,13 @@ from datetime import date
 from saver.stocks.market import Market
 from saver.stocks.operation import StockOperation
 from saver.stocks.stock import Stock
+from saver.enums.enums import Countries, Currencies
 
 
 @pytest.fixture
 def make_market():
-    def _make_market(name, country_code):
-        return Market(name=name, country_code=country_code)
+    def _make_market(name, country):
+        return Market(name=name, country=country)
 
     return _make_market
 
@@ -30,4 +31,4 @@ def make_operation():
             date=date, stock=stock, amount=amount, price=price, commission=commission
         )
 
-    return _make_stock_operation
+        return _make_stock_operation
